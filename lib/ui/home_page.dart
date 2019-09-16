@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:human_resource/mobx/central_state.dart';
@@ -45,6 +46,7 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
           Column(
             children: <Widget>[
+              Logout(),
               alucard,
               welcome,
               SizedBox(height: 24.0),
@@ -67,6 +69,7 @@ class FormFieldss extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+
         SizedBox(height: 10.0),
         Name(),
         SizedBox(height: 14.0),
@@ -78,6 +81,53 @@ class FormFieldss extends StatelessWidget {
     );
   }
 }
+class Logout extends StatelessWidget {
+  @override
+
+  Widget build(BuildContext context) {
+    void _showDialog() {
+      // flutter defined function
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          // return object of type Dialog
+          return AlertDialog(
+            title: new Text("Want to Sign out ?"),
+
+            actions: <Widget>[
+              // usually buttons at the bottom of the dialog
+              new FlatButton(
+                child: new Text("Yes"),
+                onPressed: () {
+                  FirebaseAuth.instance.signOut();
+                  Navigator.pushReplacementNamed(context, "/loginpage");
+
+                },
+              ),
+              FlatButton(
+                child: new Text("No"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+    return Row(mainAxisAlignment:MainAxisAlignment.end,children: <Widget>[
+      InkWell(
+        onTap: (){_showDialog();},
+        child: Icon(
+          Icons.power_settings_new,
+          color: Colors.white,
+          size: 30.0,
+        ),
+      )
+    ],);
+  }
+}
+
 
 final GlobalKey<FormState> formKey1 = GlobalKey<FormState>();
 
@@ -209,8 +259,13 @@ class datePicker extends StatelessWidget {
 
 class Button extends StatelessWidget {
   void request() {
-    crudObject.addData(
-        'leaves', {"duration": centralstate.date, "name": centralstate.name}).catchError((e){print(e);});
+    crudObject.addData('leaves', {
+      "duration": centralstate.date,
+      "name": centralstate.name,
+      "reason": centralstate.reason
+    }).catchError((e) {
+      print(e);
+    });
   }
 
   @override
@@ -233,7 +288,7 @@ class Button extends StatelessWidget {
               request();
 
               ///call here
-             
+
             }
           },
           padding: EdgeInsets.all(12),

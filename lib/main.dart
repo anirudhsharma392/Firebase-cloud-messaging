@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -25,9 +27,30 @@ void main() {
       loggedIn = false;
     }
   });
-  runApp(MyApp());
+  runApp(DisplayLogo());
 }
 
+class DisplayLogo extends StatefulWidget {
+  @override
+  _State createState() => _State();
+}
+
+class _State extends State<DisplayLogo> {
+  initState() {
+    Timer(Duration(seconds: 2), () {
+      runApp(MyApp());
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        color: Colors.white,
+        child: Center(
+          child: FlutterLogo(size: 300),
+        ));
+  }
+}
 class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
     "/homepage": (context) => HomePage(),
