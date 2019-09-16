@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "208013658323",
+    "firebase_url": "https://jsimple-2ce1c.firebaseio.com",
+    "project_id": "jsimple-2ce1c",
+    "storage_bucket": "jsimple-2ce1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208013658323:android:dd4d00afc24d0b08e36c26",
+        "android_client_info": {
+          "package_name": "jsimple.human_resource"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208013658323-lvbtnmonhor8ka4mtsf2d7l5n03lro5o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbh6U-LeSljjsP2Ujr_30_KGOAKNr-a0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208013658323-lvbtnmonhor8ka4mtsf2d7l5n03lro5o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
