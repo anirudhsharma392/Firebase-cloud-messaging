@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:human_resource/mobx/central_state.dart';
 import 'package:human_resource/ui/home_page.dart';
 import 'package:human_resource/ui/signup_page.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -115,6 +116,8 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.of(context).pushNamed("/signuppage");
       },
     );
+
+
 
     return Scaffold(
       backgroundColor: Colors.white,

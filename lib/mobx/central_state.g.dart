@@ -9,20 +9,20 @@ part of 'central_state.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars
 
 mixin _$CentralState on CentralStateBase, Store {
-  final _$flagAtom = Atom(name: 'CentralStateBase.flag');
+  final _$dateAtom = Atom(name: 'CentralStateBase.date');
 
   @override
-  bool get flag {
-    _$flagAtom.context.enforceReadPolicy(_$flagAtom);
-    _$flagAtom.reportObserved();
-    return super.flag;
+  String get date {
+    _$dateAtom.context.enforceReadPolicy(_$dateAtom);
+    _$dateAtom.reportObserved();
+    return super.date;
   }
 
   @override
-  set flag(bool value) {
-    _$flagAtom.context.conditionallyRunInAction(() {
-      super.flag = value;
-      _$flagAtom.reportChanged();
-    }, _$flagAtom, name: '${_$flagAtom.name}_set');
+  set date(String value) {
+    _$dateAtom.context.conditionallyRunInAction(() {
+      super.date = value;
+      _$dateAtom.reportChanged();
+    }, _$dateAtom, name: '${_$dateAtom.name}_set');
   }
 }

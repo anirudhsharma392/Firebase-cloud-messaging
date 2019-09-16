@@ -8,13 +8,19 @@ abstract class CentralStateBase with Store {
   ///All the central variables
   int gamesPlayed = 0;
   var uid;
+  var user;
+  String reason;
+  String name;
+
 
 
 
   ///Reactive states only below
 
   @observable
-  bool flag = false;
+  String date="";
+
+
 
 }
 
